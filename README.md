@@ -1,5 +1,36 @@
 # eurowings-imgur
 
+## Approach
+<pre>
+Following the BEM methodology, I followed component approach and created ReUsable components for this exercise.
+Main component is the Gallery.vue which is responsible for rendering images in gallery. GalleryFitlers uses Menu Reusable component to render filtering options and refreshing results in grid interacting with Vuex store. For UI I used the 
+material components for Vue, dialog component from material is used for showing image details.
+
+Mene Reusable component interacts with the store (Vuex) to update relavent values in the state, each menu Item accepts store key, possible otions and visual info like Label.
+
+Gallery Image is another simple component to take care of image with description layout, designed using flex layout.
+
+Dialog box is hosted by Gallery componet which renders details of images using GalleryImageDetails component using card layout.
+
+The Vuex store has an initial state which represents the application state structure. There are some computed properties as getters
+which are used by Gallery component to display messages like loading etc. 
+For this simple applications mutations, actions and getters are right there in the index.ts file, except constants. If the application 
+grows we need to create actions.ts, mutations.ts and so on for easy management of different parts of the store.
+
+For layout I used the css-grid for showing images in grid. For other components mostly Flex-Layout is followed.
+
+Material Design has no typings for Typescript so I created a simple set of types which I used from material library.
+
+</pre>
+
+## Libraries
+
+<pre>
+	https://class-component.vuejs.org/, this makes it really easy with TypeScript to rapidly develop Vuex applications
+	vue-property-decorator npm package creates a perfect match with Typescript, It has some useful decorators like Prop and Emit etc
+	axios is used for the REST API calls to Imgur server
+</pre>
+
 ## Project setup
 ```
 npm install
