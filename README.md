@@ -29,6 +29,8 @@ Material Design has no typings for Typescript so I created a simple set of types
 	https://class-component.vuejs.org/, this makes it really easy with TypeScript to rapidly develop Vuex applications
 	vue-property-decorator npm package creates a perfect match with Typescript, It has some useful decorators like Prop and Emit etc
 	axios is used for the REST API calls to Imgur server
+
+	Some Images or not rendering due to X-Content-Type-Options HTTP response header not set by the server, it instructs browsers to disable content or MIME sniffing.
 </pre>
 
 ## Project setup
