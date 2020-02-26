@@ -27,8 +27,6 @@ https://class-component.vuejs.org/, this makes it really easy with TypeScript to
 vue-property-decorator npm package creates a perfect match with Typescript, It has some useful decorators like Prop and Emit etc
 axios is used for the REST API calls to Imgur server
 
-Some Images or not rendering due to X-Content-Type-Options HTTP response header not set by the server, it instructs browsers to disable content or MIME sniffing.
-
 ## Project setup
 ```
 npm install
