@@ -1,7 +1,7 @@
 <template>
   <md-card class="image-card" md-dynamic-height>
     <md-card-area md-inset>
-	  <img :src="img.link" :alt="img.title" class="img"/>
+	  <img :src="getLink()" :alt="img.title" class="img"/>
       <md-card-header>
         <h2 class="md-title">{{img.account_url}}</h2>
         <div class="md-subhead">
@@ -27,13 +27,18 @@
 import {
 	 Component, Prop, Vue,
 	  } from "vue-property-decorator";
+import { Image } from './GalleryImage.vue';
 
 /**
  * A card layout for Image details, this component renders in a dialog in the gallery component
  */
 @Component
 export default class Gallery extends Vue {
-  @Prop() private img!: object;
+  @Prop() private img!: Image;
+
+  getLink() {
+	  return this.img?.images?.length ? this.img.images[0].link : this.img.link;
+  }
 }
 </script>
 

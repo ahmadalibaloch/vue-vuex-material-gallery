@@ -14,11 +14,16 @@ import {
 	} from "vue-property-decorator";
 
 /**
+ * Image Type
+ */
+export type Image = {images?: {link: string}[]; link?: string}
+
+/**
  * A simple component to render image with description, structured with flex-Layout
  */
 @Component
 export default class Gallery extends Vue {
-  @Prop() private img!: {images?: {link: string}[]; link?: string};
+  @Prop() private img!: Image;
 
   @Emit('showDetails')
   /* tslint:disable:no-empty */
