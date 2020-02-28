@@ -7,17 +7,12 @@
 
 <script lang="ts">
 import {
-	 Component,
+	Component,
 	 Prop,
 	 Vue,
 	 Emit,
-	} from "vue-property-decorator";
-
-/**
- * Image Type
- */
-export type Image = {images?: {link: string}[]; link?: string}
-
+ } from "vue-property-decorator";
+import { Image } from "../ImageType";
 /**
  * A simple component to render image with description, structured with flex-Layout
  */
@@ -25,13 +20,13 @@ export type Image = {images?: {link: string}[]; link?: string}
 export default class Gallery extends Vue {
   @Prop() private img!: Image;
 
-  @Emit('showDetails')
+  @Emit("showDetails")
   /* tslint:disable:no-empty */
   // eslint-disable-next-line
-  showDetails(img: object):void {}
+  showDetails(img: object): void {}
 
   getLink() {
-	  return this.img?.images?.length ? this.img.images[0].link : this.img.link;
+    return this.img?.images?.length ? this.img.images[0].link : this.img.link;
   }
 }
 </script>
@@ -45,8 +40,8 @@ export default class Gallery extends Vue {
   justify-content: space-between;
   cursor: pointer;
   img {
-	max-height: 250px;
-	object-fit: cover;
+    max-height: 250px;
+    object-fit: cover;
   }
 }
 .description {

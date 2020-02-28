@@ -27,7 +27,7 @@
 import {
 	 Component, Prop, Vue,
 	  } from "vue-property-decorator";
-import { Image } from './GalleryImage.vue';
+import { Image } from '../ImageType';
 
 /**
  * A card layout for Image details, this component renders in a dialog in the gallery component

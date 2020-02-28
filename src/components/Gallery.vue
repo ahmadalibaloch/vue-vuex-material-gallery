@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { LIST_IMGRS } from '@/store/actionTypes';
 import GalleryImage from "./GalleryImage.vue";
 import GalleryImageDetails from "./GalleryImageDetails.vue";
 
@@ -38,7 +39,7 @@ import GalleryImageDetails from "./GalleryImageDetails.vue";
 })
 export default class Gallery extends Vue {
   mounted() {
-    this.$store.dispatch("list", {
+    this.$store.dispatch(LIST_IMGRS, {
       section: "hot",
       sort: "top",
       page: "1",

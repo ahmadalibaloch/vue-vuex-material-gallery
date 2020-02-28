@@ -1,12 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from '../axiosConfig';
-
-import {
-	SET_SECTION, SET_SORT, SET_WINDOW, SET_PAGE, SET_IMGURS,
-	SET_ERROR,
-	SET_LOADING_RESULTS,
-} from './actions';
+import { AppState } from './AppState';
+import mutations from './mutations';
+import actions from './actions';
 
 Vue.use(Vuex);
 
@@ -30,60 +26,11 @@ export default new Vuex.Store(
 			windowOptions: WINDOW_OPTIONS,
 			window: 'day',
 			pageOptions: PAGE_OPTIONS,
-			page: '1',
+			page: 1,
 			error: '',
-		},
-		mutations: {
-			[SET_IMGURS](state, imgurs) {
-				state.imgurs = imgurs;
-			},
-			[SET_SECTION](state, section) {
-				state.section = section;
-			},
-			[SET_SORT](state, sort) {
-				state.sort = sort;
-			},
-			[SET_WINDOW](state, window) {
-				state.window = window;
-			},
-			[SET_PAGE](state, page) {
-				state.page = page;
-			},
-			[SET_LOADING_RESULTS](state, loadingResults) {
-				state.loadingResults = loadingResults;
-			},
-			[SET_ERROR](state, error) {
-				state.error = error;
-			},
-		},
-		actions: {
-			list({ commit, state }, {
-				section = state.section, sort = state.sort, page = state.page, window = state.window,
-			}): void {
-				commit(SET_IMGURS, []);
-				commit(SET_ERROR, '');
-				commit(SET_LOADING_RESULTS, true);
-				axios.get(`gallery/${section}/${sort}/${window}/${page}`).then(r => r.data.data).then(imgurs => {
-					commit(SET_IMGURS, imgurs);
-				}, error => {
-					commit(SET_ERROR, error);
-				}).finally(() => {
-					commit(SET_LOADING_RESULTS, false);
-				});
-			},
-			[SET_SORT]({ commit }, sort): void {
-				commit(SET_SORT, sort);
-			},
-			[SET_SECTION]({ commit }, section): void {
-				commit(SET_SECTION, section);
-			},
-			[SET_WINDOW]({ commit }, window): void {
-				commit(SET_WINDOW, window);
-			},
-			[SET_PAGE]({ commit }, page): void {
-				commit(SET_PAGE, page);
-			},
-		},
+		} as AppState,
+		mutations,
+		actions,
 		getters: {
 			loadingResults: state => state.loadingResults && state.error.length < 1,
 			noResults: state => !state.loadingResults && state.error.length < 1,
