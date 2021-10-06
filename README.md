@@ -1,4 +1,6 @@
-# eurowings-imgur
+# Vue Vuex Material Gallery Demo
+
+![Demo](https://github.com/ahmadalibaloch/vue-vuex-material-gallery/raw/master/demo.png)
 
 ## Approach
 
